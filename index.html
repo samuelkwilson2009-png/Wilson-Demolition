@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wilson Demolition | Professional Demolition Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #f97316;
+      --orange-dark: #c2570d;
+      --orange-light: #fb923c;
+      --midnight: #0b1340;
+      --midnight-mid: #111b52;
+      --midnight-light: #1a2a6c;
+      --white: #ffffff;
+      --gray: #94a3b8;
+      --gray-light: #e2e8f0;
+      --dark-card: #0f1a4a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--midnight);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(11, 19, 64, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo .logo-icon {
+      width: 38px; height: 38px;
+      background: var(--orange);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .nav-logo span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: var(--white);
+    }
+    .nav-logo span em { color: var(--orange); font-style: normal; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--gray-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 8px 22px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--orange-dark); color: var(--white) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 100px 5% 60px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(249,115,22,0.12) 0%, transparent 60%),
+        linear-gradient(135deg, #0b1340 0%, #111b52 50%, #0b1340 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(249,115,22,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249,115,22,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.4);
+      color: var(--orange-light);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: 3px;
+      margin-bottom: 28px;
+    }
+    .hero-title .accent { color: var(--orange); }
+    .hero-title .stroke {
+      -webkit-text-stroke: 2px var(--orange);
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      padding: 16px 36px;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(249,115,22,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(249,115,22,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 16px 36px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--orange);
+      background: rgba(249,115,22,0.08);
+    }
+
+    .hero-stats {
+      position: absolute;
+      right: 5%;
+      bottom: 10%;
+      display: flex;
+      gap: 40px;
+      z-index: 2;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--gray);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .hero-rubble {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .rubble-shape {
+      position: absolute;
+      background: rgba(249,115,22,0.08);
+      border: 1px solid rgba(249,115,22,0.15);
+    }
+    .rubble-shape:nth-child(1) {
+      width: 300px; height: 300px;
+      top: 15%; right: 8%;
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      animation: rotate 20s linear infinite;
+    }
+    .rubble-shape:nth-child(2) {
+      width: 180px; height: 180px;
+      top: 55%; right: 25%;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      animation: rotate 14s linear infinite reverse;
+    }
+    .rubble-shape:nth-child(3) {
+      width: 120px; height: 120px;
+      top: 20%; right: 40%;
+      clip-path: polygon(0 0, 100% 20%, 80% 100%, 10% 90%);
+      animation: rotate 18s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(var(--orange), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--orange);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      gap: 60px;
+      animation: ticker 30s linear infinite;
+    }
+    .ticker-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ticker-dot {
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      width: 30px; height: 2px;
+      background: var(--orange);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--midnight-mid);
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(249,115,22,0.1);
+      border-radius: 8px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      group: true;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(249,115,22,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(249,115,22,0.5);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(249,115,22,0.1);
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: rgba(249,115,22,0.08);
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      line-height: 1;
+      letter-spacing: -2px;
+      transition: color 0.3s;
+    }
+    .service-card:hover .service-number { color: rgba(249,115,22,0.15); }
+
+    .service-icon {
+      width: 60px; height: 60px;
+      background: rgba(249,115,22,0.12);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      transition: background 0.3s;
+    }
+    .service-card:hover .service-icon {
+      background: rgba(249,115,22,0.25);
+    }
+
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .service-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .price-from { font-size: 0.75rem; color: var(--gray); margin-right: 4px; }
+    .price-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--orange);
+    }
+    .price-unit { font-size: 0.75rem; color: var(--gray); }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .service-features li {
+      font-size: 0.82rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .service-features li::before {
+      content: '';
+      width: 16px; height: 16px;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 3px;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='%23f97316' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+
+    /* ── HOW IT WORKS ── */
+    #process { background: var(--midnight); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      margin-top: 60px;
+      position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    }
+
+    .process-step {
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .step-circle {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--dark-card);
+      border: 2px solid rgba(249,115,22,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--orange);
+      position: relative;
+      z-index: 2;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .process-step:hover .step-circle {
+      border-color: var(--orange);
+      background: rgba(249,115,22,0.1);
+    }
+
+    .step-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .step-desc {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* ── PRICING CALCULATOR ── */
+    #calculator {
+      background: var(--midnight-mid);
+    }
+
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 60px;
+      align-items: start;
+    }
+
+    .calc-form {
+      background: var(--dark-card);
+      border: 1px solid rgba(249,115,22,0.15);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .calc-form h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      color: var(--orange);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 10px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 6px;
+      color: var(--white);
+      padding: 14px 16px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+    }
+    .form-group select option { background: var(--midnight-mid); }
+
+    .form-group input[type="range"] {
+      padding: 0;
+      background: none;
+      border: none;
+      accent-color: var(--orange);
+      height: 6px;
+      cursor: pointer;
+    }
+    .range-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--orange);
+      margin-top: 6px;
+    }
+
+    .calc-result {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .result-card {
+      background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(249,115,22,0.05));
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .result-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .result-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .result-amount span { color: var(--orange); }
+    .result-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .breakdown-list {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .breakdown-list h4 {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.88rem;
+    }
+    .breakdown-row:last-child { border-bottom: none; font-weight: 700; color: var(--orange); }
+    .breakdown-row span:first-child { color: var(--gray); }
+    .breakdown-row:last-child span:first-child { color: var(--white); }
+
+    /* ── WHY US ── */
+    #why-us { background: var(--midnight); }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .why-visual {
+      position: relative;
+      height: 500px;
+    }
+    .why-main-box {
+      position: absolute;
+      inset: 0;
+      background: var(--dark-card);
+      border: 1px solid rgba(249,115,22,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .why-main-box .big-icon {
+      font-size: 8rem;
+      opacity: 0.2;
+    }
+    .why-badge {
+      position: absolute;
+      background: var(--orange);
+      border-radius: 8px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 200px;
+      box-shadow: 0 10px 40px rgba(249,115,22,0.4);
+    }
+    .why-badge.top-left {
+      top: -20px; left: -20px;
+    }
+    .why-badge.bottom-right {
+      bottom: -20px; right: -20px;
+    }
+    .why-badge-icon { font-size: 1.8rem; }
+    .why-badge-text .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .why-badge-text .lbl {
+      font-size: 0.72rem;
+      opacity: 0.85;
+      letter-spacing: 1px;
+    }
+
+    .why-features {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .why-feature {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: var(--dark-card);
+      border: 1px solid rgba(249,115,22,0.08);
+      border-radius: 8px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .why-feature:hover {
+      border-color: rgba(249,115,22,0.35);
+      transform: translateX(6px);
+    }
+    .why-feature-icon {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      background: rgba(249,115,22,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .why-feature-body h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .why-feature-body p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--midnight-mid);
+      text-align: center;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 60px;
+      text-align: left;
+    }
+
+    .testimonial-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 36px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover { border-color: rgba(249,115,22,0.25); }
+
+    .testimonial-quote {
+      font-size: 3rem;
+      color: var(--orange);
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .testimonial-text {
+      color: var(--gray-light);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+    .author-role { font-size: 0.78rem; color: var(--gray); }
+
+    .stars {
+      color: var(--orange);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--midnight);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      margin-top: 60px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      font-size: 0.9rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      background: rgba(249,115,22,0.12);
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-item-text .label {
+      font-size: 0.72rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .contact-item-text .value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-form {
+      background: var(--dark-card);
+      border: 1px solid rgba(249,115,22,0.15);
+      border-radius: 12px;
+      padding: 44px;
+    }
+    .contact-form h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      color: var(--orange);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-form .form-group input,
+    .contact-form .form-group select,
+    .contact-form .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 6px;
+      color: var(--white);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .contact-form .form-group input:focus,
+    .contact-form .form-group select:focus,
+    .contact-form .form-group textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+    }
+    .contact-form .form-group textarea { min-height: 120px; }
+    .contact-form .form-group select option { background: var(--midnight-mid); }
+
+    .form-submit { width: 100%; margin-top: 8px; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 8px;
+      margin-top: 16px;
+      color: var(--orange-light);
+      font-size: 0.9rem;
+    }
+
+    /* ── CTA BAND ── */
+    #cta-band {
+      background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 50%, var(--orange-dark) 100%);
+      padding: 80px 5%;
+      text-align: center;
+    }
+    #cta-band h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    #cta-band p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--orange);
+      padding: 18px 48px;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070e30;
+      padding: 60px 5% 30px;
+      border-top: 1px solid rgba(249,115,22,0.15);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul li a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--orange); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+    .footer-bottom p span { color: var(--orange); }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-legal a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--orange); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11,19,64,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--orange); }
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 5%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .calc-layout { grid-template-columns: 1fr; }
+      .why-layout { grid-template-columns: 1fr; }
+      .why-visual { height: 320px; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { position: static; margin-top: 40px; justify-content: flex-start; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-title { font-size: clamp(3rem, 12vw, 4rem); }
+      .process-grid::before { display: none; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 70px 5%; }
+      .process-grid { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#process" onclick="closeMobileMenu()">Process</a>
+  <a href="#calculator" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#why-us" onclick="closeMobileMenu()">About</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">💥</div>
+    <span>WILSON <em>DEMOLITION</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#calculator">Pricing</a></li>
+    <li><a href="#why-us">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMobileMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-rubble">
+    <div class="rubble-shape"></div>
+    <div class="rubble-shape"></div>
+    <div class="rubble-shape"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Licensed &amp; Insured Demolition</div>
+    <h1 class="hero-title">
+      WE TEAR<br>
+      <span class="accent">IT ALL</span><br>
+      <span class="stroke">DOWN</span>
+    </h1>
+    <p class="hero-sub">
+      Wilson Demolition delivers precision demolition at the best price per square foot.
+      From interior strip-outs to full pool fills, we handle every job with power, safety, and efficiency.
+    </p>
+    <div class="hero-actions">
+      <a href="#calculator" class="btn-primary">Get Instant Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Licensed &amp; Insured</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner">
+    <span class="ticker-item">Interior Demolition <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Shed Removal <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Pool Demolition &amp; Filling <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Concrete Demolition <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Debris Removal <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Priced Per Sq Ft <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Licensed &amp; Insured <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Free Quotes <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Interior Demolition <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Shed Removal <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Pool Demolition &amp; Filling <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Concrete Demolition <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Debris Removal <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Priced Per Sq Ft <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Licensed &amp; Insured <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Free Quotes <span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label reveal">What We Do</div>
+      <h2 class="section-title reveal">OUR DEMOLITION<br>SERVICES</h2>
+    </div>
+    <p class="section-sub reveal">Every job is scoped and priced transparently—by the square foot of material removed, so you only pay for what we take down.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <span class="service-number">01</span>
+      <div class="service-icon">🏠</div>
+      <h3 class="service-name">Interior Demolition</h3>
+      <p class="service-desc">Complete gut-outs, wall removal, ceiling teardown, and fixture stripping for residential and commercial spaces.</p>
+      <div class="service-price">
+        <span class="price-from">from</span>
+        <span class="price-amount">$4</span>
+        <span class="price-unit">/ sq ft</span>
+      </div>
+      <ul class="service-features">
+        <li>Wall & partition removal</li>
+        <li>Ceiling &amp; floor demolition</li>
+        <li>Kitchen &amp; bathroom strip-outs</li>
+        <li>Debris hauling included</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-number">02</span>
+      <div class="service-icon">🏚️</div>
+      <h3 class="service-name">Shed Demolition</h3>
+      <p class="service-desc">Safe teardown and complete removal of sheds, outbuildings, and detached structures of any size.</p>
+      <div class="service-price">
+        <span class="price-from">from</span>
+        <span class="price-amount">$6</span>
+        <span class="price-unit">/ sq ft</span>
+      </div>
+      <ul class="service-features">
+        <li>Wood, metal &amp; brick sheds</li>
+        <li>Foundation removal optional</li>
+        <li>Site graded &amp; cleaned</li>
+        <li>All materials disposed</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-number">03</span>
+      <div class="service-icon">🏊</div>
+      <h3 class="service-name">Pool Demolition &amp; Fill</h3>
+      <p class="service-desc">Full pool removals with engineered fill and compaction — turning an unused pool into usable yard space.</p>
+      <div class="service-price">
+        <span class="price-from">from</span>
+        <span class="price-amount">$10</span>
+        <span class="price-unit">/ sq ft</span>
+      </div>
+      <ul class="service-features">
+        <li>Concrete &amp; fiberglass pools</li>
+        <li>Engineered fill compacted</li>
+        <li>Plumbing capped &amp; sealed</li>
+        <li>Permit assistance available</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-number">04</span>
+      <div class="service-icon">🪨</div>
+      <h3 class="service-name">Concrete Demolition</h3>
+      <p class="service-desc">Driveways, slabs, patios, walkways, and footings — we break it, haul it, and leave the site clean.</p>
+      <div class="service-price">
+        <span class="price-from">from</span>
+        <span class="price-amount">$5</span>
+        <span class="price-unit">/ sq ft</span>
+      </div>
+      <ul class="service-features">
+        <li>Jackhammer &amp; saw-cutting</li>
+        <li>Reinforced &amp; plain concrete</li>
+        <li>Driveway &amp; slab removal</li>
+        <li>Same-day haul-away</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label reveal">Simple Process</div>
+  <h2 class="section-title reveal">HOW IT WORKS</h2>
+  <p class="section-sub reveal">Getting your demolition job done is straightforward. Here's our process from first call to final cleanup.</p>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="step-circle">1</div>
+      <h3 class="step-title">Request a Quote</h3>
+      <p class="step-desc">Submit your project details online or call us. We respond within 2 business hours.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-circle">2</div>
+      <h3 class="step-title">On-Site Assessment</h3>
+      <p class="step-desc">We visit the site, measure the square footage, and provide a firm written quote — no surprises.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-circle">3</div>
+      <h3 class="step-title">Schedule &amp; Permit</h3>
+      <p class="step-desc">We handle permits where required and schedule demolition at your convenience.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-circle">4</div>
+      <h3 class="step-title">Demolition Day</h3>
+      <p class="step-desc">Our crew arrives on time with all equipment. We work safely and efficiently.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-circle">5</div>
+      <h3 class="step-title">Cleanup &amp; Haul</h3>
+      <p class="step-desc">All debris is removed from your property. We leave the site clean and ready for the next phase.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-circle">6</div>
+      <h3 class="step-title">Final Invoice</h3>
+      <p class="step-desc">You're billed only for the actual square footage of material removed — fair and transparent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="calculator">
+  <div class="section-label reveal">Transparent Pricing</div>
+  <h2 class="section-title reveal">INSTANT PRICE<br>ESTIMATOR</h2>
+  <p class="section-sub reveal">Use our estimator to get a ballpark figure. Final pricing is confirmed after our free on-site assessment.</p>
+
+  <div class="calc-layout">
+    <div class="calc-form reveal">
+      <h3>Calculate Your Job</h3>
+
+      <div class="form-group">
+        <label>Service Type</label>
+        <select id="calcService" onchange="updateCalc()">
+          <option value="4">Interior Demolition — from $4/sq ft</option>
+          <option value="6">Shed Demolition — from $6/sq ft</option>
+          <option value="10">Pool Demolition &amp; Fill — from $10/sq ft</option>
+          <option value="5">Concrete Demolition — from $5/sq ft</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Square Footage: <span class="range-value" id="sqftDisplay">500 sq ft</span></label>
+        <input type="range" id="calcSqft" min="50" max="5000" step="50" value="500" oninput="updateCalc()" />
+      </div>
+
+      <div class="form-group">
+        <label>Material Thickness</label>
+        <select id="calcThickness" onchange="updateCalc()">
+          <option value="1">Standard (4–6 in)</option>
+          <option value="1.3">Heavy (6–10 in)</option>
+          <option value="1.6">Extra Heavy (10 in+)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Debris Hauling</label>
+        <select id="calcHaul" onchange="updateCalc()">
+          <option value="0">Included in base price</option>
+          <option value="0.5">Priority Same-Day (+$0.50/sq ft)</option>
+          <option value="1">Hazardous Material Disposal (+$1.00/sq ft)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-result reveal">
+      <div class="result-card">
+        <div class="result-label">Estimated Total</div>
+        <div class="result-amount" id="calcTotal"><span>$</span>2,000</div>
+        <div class="result-note">Based on 500 sq ft · Final price confirmed on-site</div>
+      </div>
+
+      <div class="breakdown-list">
+        <h4>Price Breakdown</h4>
+        <div class="breakdown-row">
+          <span>Base rate</span>
+          <span id="bkBase">$4.00 / sq ft</span>
+        </div>
+        <div class="breakdown-row">
+          <span>Thickness multiplier</span>
+          <span id="bkThick">1.0×</span>
+        </div>
+        <div class="breakdown-row">
+          <span>Hauling &amp; disposal</span>
+          <span id="bkHaul">Included</span>
+        </div>
+        <div class="breakdown-row">
+          <span>Square footage</span>
+          <span id="bkSqft">500 sq ft</span>
+        </div>
+        <div class="breakdown-row">
+          <span>Estimated Total</span>
+          <span id="bkTotal">$2,000</span>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn-primary" style="text-align:center;">Request Official Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="section-label reveal">Why Wilson</div>
+  <h2 class="section-title reveal">THE WILSON<br>DIFFERENCE</h2>
+
+  <div class="why-layout">
+    <div class="why-visual reveal">
+      <div class="why-main-box">
+        <span class="big-icon">🏗️</span>
+      </div>
+      <div class="why-badge top-left">
+        <span class="why-badge-icon">🏆</span>
+        <div class="why-badge-text">
+          <div class="num">12+ Yrs</div>
+          <div class="lbl">In Business</div>
+        </div>
+      </div>
+      <div class="why-badge bottom-right">
+        <span class="why-badge-icon">⭐</span>
+        <div class="why-badge-text">
+          <div class="num">4.9 / 5</div>
+          <div class="lbl">Avg. Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-features">
+      <div class="why-feature reveal">
+        <div class="why-feature-icon">📐</div>
+        <div class="why-feature-body">
+          <h4>Pay Only Per Square Foot</h4>
+          <p>No hourly rates, no hidden fees. You're billed for the exact square footage of material we remove — measured and documented on-site.</p>
+        </div>
+      </div>
+      <div class="why-feature reveal">
+        <div class="why-feature-icon">🛡️</div>
+        <div class="why-feature-body">
+          <h4>Fully Licensed &amp; Insured</h4>
+          <p>Wilson Demolition carries full liability insurance and workers' compensation. Your property and our crew are always protected.</p>
+        </div>
+      </div>
+      <div class="why-feature reveal">
+        <div class="why-feature-icon">⚡</div>
+        <div class="why-feature-body">
+          <h4>Fast Turnaround</h4>
+          <p>Most residential jobs are completed in a single day. We arrive on time, work efficiently, and leave your site clean.</p>
+        </div>
+      </div>
+      <div class="why-feature reveal">
+        <div class="why-feature-icon">♻️</div>
+        <div class="why-feature-body">
+          <h4>Responsible Disposal</h4>
+          <p>We sort and recycle all salvageable materials — concrete, metal, and timber — to minimize landfill impact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label reveal" style="justify-content:center;">Client Reviews</div>
+  <h2 class="section-title reveal">WHAT OUR CLIENTS SAY</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Wilson Demolition knocked out my entire basement gut-out in one day. The pricing per square foot was crystal clear — no hidden costs whatsoever. Will absolutely hire again for the next phase.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JM</div>
+        <div>
+          <div class="author-name">James M.</div>
+          <div class="author-role">Homeowner · Interior Demo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">They removed our old in-ground pool and filled it properly with engineered material. The yard looks great and was graded perfectly. Handled all the permits too, which saved us so much hassle.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <div class="author-name">Sarah R.</div>
+          <div class="author-role">Homeowner · Pool Demo &amp; Fill</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">We needed a 400 sq ft concrete driveway removed before our new pour. Wilson was on-site next morning, done by noon, and the price was exactly what was quoted. Exceptional service.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">TC</div>
+        <div>
+          <div class="author-name">Tom C.</div>
+          <div class="author-role">Contractor · Concrete Demo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">Get Started</div>
+  <h2 class="section-title reveal">REQUEST A<br>FREE QUOTE</h2>
+
+  <div class="contact-layout">
+    <div class="contact-info reveal">
+      <h3>Ready to Demolish?</h3>
+      <p>Fill out the form and we'll reach out within 2 business hours to schedule your free on-site assessment. All quotes are firm and written.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <div class="label">Phone</div>
+            <div class="value">(555) 400-DEMO</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div class="contact-item-text">
+            <div class="label">Email</div>
+            <div class="value">quotes@wilsondemo.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-text">
+            <div class="label">Hours</div>
+            <div class="value">Mon–Sat · 7am – 6pm</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <div class="label">Service Area</div>
+            <div class="value">50-Mile Radius · Available Statewide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3>Request a Quote</h3>
+      <form id="quoteForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="(555) 000-0000" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@example.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select required>
+            <option value="">Select a service...</option>
+            <option>Interior Demolition</option>
+            <option>Shed Demolition</option>
+            <option>Pool Demolition &amp; Fill</option>
+            <option>Concrete Demolition</option>
+            <option>Multiple Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Estimated Square Footage</label>
+          <input type="text" placeholder="e.g. 500 sq ft" />
+        </div>
+        <div class="form-group">
+          <label>Project Details</label>
+          <textarea placeholder="Describe the project, location, and any special requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">Submit Quote Request</button>
+        <div class="form-success" id="formSuccess">
+          ✅ Your request has been received! We'll contact you within 2 business hours.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div id="cta-band">
+  <h2>READY TO BRING IT DOWN?</h2>
+  <p>Get a firm, transparent quote based on your actual square footage — no guesswork, no surprises.</p>
+  <a href="#contact" class="btn-white">Get Your Free Quote</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom: 0;">
+        <div class="logo-icon">💥</div>
+        <span style="font-family: 'Bebas Neue', sans-serif; font-size:1.4rem; letter-spacing:2px; color:white;">WILSON <em style="color:var(--orange);font-style:normal;">DEMOLITION</em></span>
+      </a>
+      <p>Professional demolition services — priced fairly per square foot. Licensed, insured, and committed to a clean site every time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Interior Demolition</a></li>
+        <li><a href="#services">Shed Demolition</a></li>
+        <li><a href="#services">Pool Demo &amp; Fill</a></li>
+        <li><a href="#services">Concrete Demolition</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why-us">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#calculator">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#contact">Get a Quote</a></li>
+        <li><a href="tel:5554003366">(555) 400-DEMO</a></li>
+        <li><a href="mailto:quotes@wilsondemo.com">quotes@wilsondemo.com</a></li>
+        <li><a href="#contact">Service Areas</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Wilson Demolition. All rights reserved. Built with <span>♥</span> and heavy equipment.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Licensing</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // CALCULATOR
+  const RATES = {
+    base: { 4: 4, 6: 6, 10: 10, 5: 5 },
+  };
+
+  function updateCalc() {
+    const service = parseFloat(document.getElementById('calcService').value);
+    const sqft    = parseInt(document.getElementById('calcSqft').value);
+    const thick   = parseFloat(document.getElementById('calcThickness').value);
+    const haul    = parseFloat(document.getElementById('calcHaul').value);
+
+    document.getElementById('sqftDisplay').textContent = sqft.toLocaleString() + ' sq ft';
+
+    const effectiveRate = (service * thick) + haul;
+    const total = Math.round(effectiveRate * sqft);
+
+    document.getElementById('calcTotal').innerHTML = '<span>$</span>' + total.toLocaleString();
+    document.getElementById('bkBase').textContent  = '$' + service.toFixed(2) + ' / sq ft';
+    document.getElementById('bkThick').textContent = thick.toFixed(1) + '×';
+    document.getElementById('bkHaul').textContent  = haul === 0 ? 'Included' : '+$' + haul.toFixed(2) + '/sq ft';
+    document.getElementById('bkSqft').textContent  = sqft.toLocaleString() + ' sq ft';
+    document.getElementById('bkTotal').textContent = '$' + total.toLocaleString();
+
+    const note = document.querySelector('.result-note');
+    if (note) note.textContent = 'Based on ' + sqft.toLocaleString() + ' sq ft · Final price confirmed on-site';
+  }
+  updateCalc();
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.textContent = 'Request Sent!';
+    }, 1000);
+  }
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
